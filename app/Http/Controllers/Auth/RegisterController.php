@@ -24,7 +24,7 @@ class RegisterController extends Controller
     |
     */
 
-    // use RegistersUsers;
+    use RegistersUsers;
 
     /**
      * Where to redirect users after registration.
@@ -88,9 +88,9 @@ class RegisterController extends Controller
     public function showRegistrationForm()
     {
         $count_user = User::count();
-        if($count_user > 0){
-            return redirect('/login');
-        }
+        // if($count_user > 0){
+        //     return redirect('/login');
+        // }
         return view('auth.register'); // Remplacez "auth.custom-register" par le nom de votre vue personnalisée
     }
 }

@@ -21,6 +21,8 @@ Route::get('/', function () {
 // Route::get('/login', [App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');
 Auth::routes();
 
+Route::post('/authenticate', [App\Http\Controllers\Auth\LoginController::class, 'authenticate'])->name('authenticate');
+
 
 //common route
 Route::middleware(['auth'])->group(function () {
