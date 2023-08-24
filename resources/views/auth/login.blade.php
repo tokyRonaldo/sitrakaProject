@@ -79,8 +79,15 @@
 <body>
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid d-flex ">
-    <img width="46" height="50" style="margin-right: 5px;" src="{{ asset('images/logo_pharm.png') }}"/>
-      <H3>TOKYPHARM</H3>
+    @php
+      $img_path= imgLogo();
+      @endphp
+    <img width="46" height="50" style="margin-right: 5px;" src="{{ asset($img_path) }}"/>
+    @if(!empty($apropos))
+    <H3>{{$apropos->nom}}</H3>
+    @else
+    <H3>nom</H3>
+    @endif
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

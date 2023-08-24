@@ -33,14 +33,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 
     
     //produit
-    // Route::get('/produit', [App\Http\Controllers\ProduitController::class, 'index'])->name('produit_index'); 
+    Route::get('/produit', [App\Http\Controllers\ProduitController::class, 'index'])->name('produit_index'); 
     // Route::get('/produit/create', [App\Http\Controllers\ProduitController::class, 'create'])->name('produit_create'); 
     // Route::post('/produit/update/{id}', [App\Http\Controllers\ProduitController::class, 'update'])->name('produit_update'); 
     // Route::post('/produit/store', [App\Http\Controllers\ProduitController::class, 'store'])->name('produit_store'); 
     // Route::get('/produit/get-produit-row', [App\Http\Controllers\ProduitController::class, 'getProduitRow'])->name('get_produit_row'); 
     // Route::get('/produit/list-produits', [App\Http\Controllers\ProduitController::class, 'listProduit'])->name('list_produit'); 
     // Route::get('/produit/edit/{id}', [App\Http\Controllers\ProduitController::class, 'edit'])->name('produit_edit'); 
-    // Route::get('/produit/show/{id}', [App\Http\Controllers\ProduitController::class, 'show'])->name('produit_show'); 
+    Route::get('/produit/show/{id}', [App\Http\Controllers\ProduitController::class, 'show'])->name('produit_show'); 
     // Route::get('/produit/destroy/{id}', [App\Http\Controllers\ProduitController::class, 'destroy'])->name('produit_destroy');
     
     //role
@@ -102,6 +102,7 @@ Route::middleware(['role:admin'])->group(function() {
     Route::get('/produit/get-produit-row', [App\Http\Controllers\ProduitController::class, 'getProduitRow'])->name('get_produit_row'); 
     Route::get('/produit/list-produits', [App\Http\Controllers\ProduitController::class, 'listProduit'])->name('list_produit'); 
     Route::get('/produit/edit/{id}', [App\Http\Controllers\ProduitController::class, 'edit'])->name('produit_edit'); 
+    Route::get('/produit/show/{id}', [App\Http\Controllers\ProduitController::class, 'show'])->name('produit_show'); 
     Route::get('/produit/destroy/{id}', [App\Http\Controllers\ProduitController::class, 'destroy'])->name('produit_destroy');
 
         Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user_index'); 
@@ -127,6 +128,16 @@ Route::middleware(['role:admin'])->group(function() {
     Route::get('/client/destroy/{id}', [App\Http\Controllers\ClientController::class, 'destroy'])->name('client_destroy');
 
 
+});
+
+Route::middleware(['role:superAdmin'])->group(function() {
+        Route::get('/apropos', [App\Http\Controllers\AboutController::class, 'index'])->name('apropos'); 
+    Route::get('/apropos/create', [App\Http\Controllers\AboutController::class, 'create'])->name('apropos_create'); 
+    Route::post('/apropos/update/{id}', [App\Http\Controllers\AboutController::class, 'update'])->name('apropos_update'); 
+    Route::post('/apropos/store', [App\Http\Controllers\AboutController::class, 'store'])->name('apropos_store'); 
+    Route::get('/apropos/edit/{id}', [App\Http\Controllers\AboutController::class, 'edit'])->name('apropos_edit'); 
+    Route::get('/apropos/show/{id}', [App\Http\Controllers\AboutController::class, 'show'])->name('apropos_show'); 
+    Route::get('/apropos/destroy/{id}', [App\Http\Controllers\AboutController::class, 'destroy'])->name('apropos_destroy');
 });
 
 

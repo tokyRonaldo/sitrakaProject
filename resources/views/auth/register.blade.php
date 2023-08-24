@@ -77,8 +77,15 @@
 <body>
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid d-flex ">
-    <img width="46" height="50" style="margin-right: 5px;" src="{{ asset('images/logo_pharm.png') }}"/>
-      <H3>TOKYPHARM</H3>
+      @php
+      $img_path= imgLogo();
+      @endphp
+    <img width="46" height="50" style="margin-right: 5px;" src="{{ asset($img_path) }}"/>
+    @if(!empty($apropos))
+    <H3>{{$apropos->nom}}</H3>
+    @else
+    <H3>nom</H3>
+    @endif
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -107,7 +114,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
-
+                    
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -116,7 +123,7 @@
                             <label for="username" class="col-md-4 col-form-label text-md-end">{{ __('Username') }}</label>
 
                             <div class="col-md-6">
-                                <input id="username" type="text" class="form-control " name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
+                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
 
                                 @error('username')
                                     <span class="invalid-feedback" role="alert">

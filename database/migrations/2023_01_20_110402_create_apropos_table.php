@@ -17,13 +17,13 @@ class CreateAproposTable extends Migration
             $table->id();
             $table->string('nom');
             $table->string('logo');
-            $table->string('nif');
-            $table->string('state');
+            $table->string('nif')->nullable();
+            $table->string('state')->nullable();
             $table->string('number_phone1');
-            $table->string('number_phone2');
+            $table->string('number_phone2')->nullable();
             $table->string('email');
-            $table->string('facebook');
-            $table->text('description');
+            $table->string('facebook')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
