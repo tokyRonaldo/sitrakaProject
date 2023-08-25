@@ -10,6 +10,7 @@ use App\Models\UserRole;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
@@ -24,7 +25,7 @@ class RegisterController extends Controller
     |
     */
 
-    // use RegistersUsers;
+    use RegistersUsers;
 
     /**
      * Where to redirect users after registration.
@@ -53,7 +54,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255','unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -67,22 +68,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $role_detail['nom']='superAdmin';
+            $role_detail['nom']='superAdmin';
 
-        $role=Role::create($role_detail);
+            $role=Role::create($role_detail);
 
-        $user=User::create([
-            'username' => $data['username'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+            $user=User::create([
+                'username' => $data['username'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+            ]);
 
-             $user_role=UserRole::create([
-                'role_id'=>$role->id,
-                'user_id'=>$user->id,
-             ]);
+                $user_role=UserRole::create([
+                    'role_id'=>$role->id,
+                    'user_id'=>$user->id,
+                ]);
 
-        return $user;
+            return $user;
+
     }
 
     public function showRegistrationForm()

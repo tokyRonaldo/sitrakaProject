@@ -181,7 +181,6 @@
     $( "#date_transaction" ).datepicker();
 
 
-    console.log('helloo');
     
     //get transaction client
     // $('#transaction_client').select2({
@@ -245,7 +244,7 @@
                 type:'get',
                 // data:{'id':id, '_token': token},
                 success: function(data) {
-                console.log(data)
+                // console.log(data)
                 $('#client_modal').html(data);
                 }
                 });
@@ -315,7 +314,7 @@
 
     if ($('#search_produits').length > 0) {
     var val=$('#search_produits').val();
-        alert(val);
+        // alert(val);
 
     $('#search_produits')
             .autocomplete({
@@ -551,7 +550,6 @@ function update_status_payment(){
             var p_payment=parseFloat(payment);
 
             var reste=p_total_amount - p_payment;
-console.log(reste);
             if(reste >= 0){
                 $('span.balance_due').text(reste.toFixed(2));
             }
@@ -560,9 +558,9 @@ console.log(reste);
             }
         }
 
-$('.modal .submit_client_form').on('click',function(){
-    alert('hello');
-});
+// $('.modal .submit_client_form').on('click',function(){
+//     alert('hello');
+// });
 // $(document).getElementByClass('add_new_client').on('cick',function(){
 //     alert('helo');
 // });

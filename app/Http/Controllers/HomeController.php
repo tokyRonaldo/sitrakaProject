@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Transaction;
+use App\Models\Apropos;
+use App\Models\Article;
 
 class HomeController extends Controller
 {
@@ -24,6 +26,8 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
+        $roles = session('roles');   //au cas Ou on a besoin de tout les roles
+        // dd($roles);
         $date=new \DateTime();
         $sell_total=sellTotal();
         $date_start = $date->format('m-d-Y');
@@ -37,12 +41,16 @@ class HomeController extends Controller
         $date_end = $input_end;
         }
         
-
+        $apropos = Apropos::first();
+           
+        $produits = Article::latest()->take(3)->get();
         // dd($sell->total_paid);
         return view('home')->with(compact(
             'sell_total',
             'date_start',
-            'date_end'
+            'date_end',
+            'produits',
+            'apropos'
 
          ))
         ;

@@ -7,9 +7,13 @@
 <div class="title col-sm-6 col-xs-12 col-md-6">
 <h1>Produits</h1>
 </div>
+@if(isset($roles))
+            @if(in_array('admin',$roles) || in_array('superAdmin',$roles))
 <div class="ajouter col-sm-6 col-xs-12 col-md-6">
     <a href="{{ action('App\Http\Controllers\ProduitController@create')}}" class="btn btn-primary float-end"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter</a>
 </div>
+@endif
+@endif
 </div>
 </div>
 

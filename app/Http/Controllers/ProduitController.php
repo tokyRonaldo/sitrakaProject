@@ -30,14 +30,23 @@ class ProduitController extends Controller
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
+                    $roles = session('roles');
                     $html =
-                    '<div class="btn-group"><button type="button" class="btn btn-info dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="false">action<span class="caret"></span></button><ul class="dropdown-menu dropdown-menu-left" role="menu">';
-                    $html .= '<li><a href="'. action('App\Http\Controllers\ProduitController@show', [$row->id]) .'" class="btn-modal view-product-modal" data-toggle="modal" data-target="#view_modal"><i class="fa fa-eye"></i>show</a></li>';
+                    '<div class="btn-group"><button type="button" class="btn btn-info dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="false">action<span class="caret"></span></button>';
+                    if (isset($roles)){
+                        if(in_array('admin',$roles) ||in_array('superAdmin',$roles)){
+                            $html .= '<ul class="dropdown-menu dropdown-menu-left" role="menu">';
+                    
+                    // $html .= '<li><a href="'. action('App\Http\Controllers\ProduitController@show', [$row->id]) .'" class="btn-modal view-product-modal" data-toggle="modal" data-target="#view_modal"><i class="fa fa-eye"></i>show</a></li>';
+                  
                     $html .= '<li><a href="'. action('App\Http\Controllers\ProduitController@edit', [$row->id]) .'" class="edit-product"><i class="fas fa-edit"></i>edit</a></li>';
                     $html .= '<li><a  href="'. action('App\Http\Controllers\ProduitController@destroy', [$row->id]) .'" class="delete-product"><i  class="fa fa-trash"></i>delete</a></li>';
                     // $html .= '<a href="javascript:void(0)" class="delete btn btn-danger btn-sm">edit</a>';
                     $html .= '</ul></div>';
-                    return $html;
+                }
+            }
+            $html .= '</div>';
+            return $html;
                 })
                 ->addColumn('nom', function($row){
                     $nom='<div class="name">' .$row->nom.'</div>';

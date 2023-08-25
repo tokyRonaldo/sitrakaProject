@@ -18,9 +18,9 @@ class AuthController extends Controller
     {
         dd('ici');
        
-        return view('auth.login', [
-            // 'user' => User::findOrFail($id)
-        ]);
+        // return view('auth.login', [
+        //     // 'user' => User::findOrFail($id)
+        // ]);
     }
 
 }

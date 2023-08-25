@@ -193,3 +193,9 @@ sidebar {
     position:relative;
     top: 66px;
   }
+
+  .active {
+    background-color: #3498db; /* Exemple de couleur de fond */
+    color: #fff; /* Exemple de couleur du texte */
+    font-weight: bold;
+  }

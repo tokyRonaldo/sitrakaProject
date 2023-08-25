@@ -165,7 +165,7 @@ class ClientController extends Controller
     public function edit($id)
     {
         $client=Contact::find($id);
-        return view('client.create', [
+        return view('client.edit', [
              'client' => $client
         ]);
     }
@@ -187,7 +187,7 @@ class ClientController extends Controller
             $produit_detail['adresse']=$request->input('addresse');
 
             $client=$client->update($produit_detail);
-            $client->save();
+            // $client->save();
 
             DB::commit();
             $output = ['success' => 1,

@@ -125,7 +125,7 @@ class RoleController extends Controller
             $role_detail['nom']=$request->input('role');
 
             $role=$role->update($role_detail);
-            $role->save();
+            // $role->save();
 
             DB::commit();
             $output = ['success' => 1,
