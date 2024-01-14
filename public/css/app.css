@@ -10983,6 +10983,7 @@ textarea.form-control-lg {
 .containt {
   position: relative;
   top: 66px;
+  margin-left: 15px;
 }
 
 .active {

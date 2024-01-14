@@ -1,11 +1,11 @@
 
 
-<nav class="navbar navbar-expand-lg fixed-top" style="background-color:#e0e0d1;">
+<nav class="navbar navbar-expand-lg fixed-top" style="background-color :#17a2b8; ">
     <div class="container-fluid d-flex ">
       @php
       $img_path= imgLogo();
       @endphp
-    <img width="46" height="50" style="margin-right: 5px;" src="{{ asset($img_path) }}"/>
+    <img width="46" height="50" style="margin-right: 5px;" src="{{ asset('dgfg') }}"/>
     @if(!empty($apropos))
     <H3>{{$apropos->nom}}</H3>
     @else

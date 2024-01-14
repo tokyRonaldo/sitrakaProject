@@ -4,12 +4,12 @@
 use Illuminate\Support\Facades\Request;
 @endphp
       
-<div class="sidebar" style="background-color:#337ab7;margin-left: 0; padding-left: 0;border-radius:2px;position: fixed; left: 0;top: 66px;height: 100%;overflow: auto; ">
+<div class="sidebar" style="background-color:#17a2b8;margin-left: 0; padding-left: 0;border-radius:2px;position: fixed; left: 0;top: 66px;height: 100%;overflow: auto; ">
       <a class="@if(Request::route()->getName() === 'home') active @endif" href="{{route('home')}}"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
       @if(isset($roles))
             @if(in_array('admin',$roles) || in_array('superAdmin',$roles))
-            <a href="{{route('user_index')}}"  class="@if(Request::route()->getName() === 'user_index') active @endif"><i class="fa fas fa-arrow-circle-up" aria-hidden="true"></i>Utilisateurs</a>
-            <a href="{{route('role_index')}}"  class="@if(Request::route()->getName() === 'role_index') active @endif"><i class="fa fas fa-arrow-circle-up" aria-hidden="true"></i>Roles</a>
+            <a href="{{route('user_index')}}"  class="@if(Request::route()->getName() === 'user_index') active @endif"><i class="fa fas fa-user" aria-hidden="true"></i>Utilisateurs</a>
+            <a href="{{route('role_index')}}"  class="@if(Request::route()->getName() === 'role_index') active @endif"><i class="fa fas fa-critical-role" aria-hidden="true"></i>Roles</a>
             @endif
         @endif
       

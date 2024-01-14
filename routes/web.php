@@ -30,7 +30,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [App\Http\Controllers\LogoutController::class, 'perform'])->name('logout'); 
     
     //home
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 
     
     //produit
     Route::get('/produit', [App\Http\Controllers\ProduitController::class, 'index'])->name('produit_index'); 

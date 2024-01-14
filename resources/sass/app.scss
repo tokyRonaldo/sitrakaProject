@@ -192,10 +192,12 @@ sidebar {
   .containt{
     position:relative;
     top: 66px;
+    margin-left: 15px;
+
   }
 
   .active {
-    background-color: #3498db; /* Exemple de couleur de fond */
+    background-color: #061ef5; /* Exemple de couleur de fond */
     color: #fff; /* Exemple de couleur du texte */
     font-weight: bold;
   }

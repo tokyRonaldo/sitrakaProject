@@ -5422,7 +5422,7 @@ $(document).ready(function () {
     var format_start = start.format('MM-DD-YYYY');
     var format_end = end.format('MM-DD-YYYY');
     // console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-    window.location.href = '/home?start=' + format_start + '&end=' + format_end;
+    window.location.href = '/?start=' + format_start + '&end=' + format_end;
   });
 
   // $("form#shipper_add_form").validate({

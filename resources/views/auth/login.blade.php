@@ -77,7 +77,7 @@
       
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg " style="background-color : #17a2b8; ">
     <div class="container-fluid d-flex ">
     @php
       $img_path= imgLogo();

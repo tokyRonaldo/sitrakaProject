@@ -5,7 +5,7 @@
 <div class="header ">
     <div class="row d-flex">
 <div class="title col-sm-6 col-md-6 col-xs-12">
-<h1>Vente</h1>
+<h1>Ventes</h1>
 </div>
 <div class="ajouter col-sm-6 col-md-6 col-xs-12">
     <a href="{{ action('App\Http\Controllers\SellController@create')}}" class="btn btn-primary float-end"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter</a>
