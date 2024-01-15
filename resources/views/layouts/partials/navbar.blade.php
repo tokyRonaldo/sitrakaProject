@@ -5,7 +5,7 @@
       @php
       $img_path= imgLogo();
       @endphp
-    <img width="46" height="50" style="margin-right: 5px;" src="{{ asset('dgfg') }}"/>
+    <img width="46" height="50" style="margin-right: 5px;" src="{{ asset($img_path) }}"/>
     @if(!empty($apropos))
     <H3>{{$apropos->nom}}</H3>
     @else
